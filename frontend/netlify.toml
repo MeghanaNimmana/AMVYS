@@ -1,0 +1,29 @@
+[build]
+command = "npm run build"
+publish = "dist"
+functions = "functions"
+
+[dev]
+command = "npm run dev"
+port = 3000
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+[[headers]]
+for = "/api/*"
+[headers.values]
+Access-Control-Allow-Origin = "*"
+Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+[context.production]
+environment = { VITE_API_URL = "https://your-backend-url.com" }
+
+[context.preview]
+environment = { VITE_API_URL = "http://localhost:8000" }
+
+[context.branch-deploy]
+environment = { VITE_API_URL = "http://localhost:8000" }

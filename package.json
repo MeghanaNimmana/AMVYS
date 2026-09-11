@@ -1,0 +1,16 @@
+{
+  "name": "smartdeliver-ai",
+  "version": "1.0.0",
+  "description": "SmartDeliver AI - Enterprise Delivery Communication & RTO Prevention SaaS",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "dev": "cd frontend && npm run dev",
+    "start": "cd frontend && npm run preview"
+  },
+  "devDependencies": {},
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}

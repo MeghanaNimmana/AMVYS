@@ -1,11 +1,12 @@
 [build]
+base = "frontend"
 command = "npm run build"
 publish = "dist"
-functions = "functions"
 
 [dev]
 command = "npm run dev"
 port = 3000
+directory = "frontend"
 
 [[redirects]]
 from = "/*"
@@ -19,11 +20,11 @@ Access-Control-Allow-Origin = "*"
 Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
 Access-Control-Allow-Headers = "Content-Type, Authorization"
 
-[context.production]
-environment = { VITE_API_URL = "https://your-backend-url.com" }
+[env.production]
+VITE_API_URL = "https://your-backend-url.com"
 
-[context.preview]
-environment = { VITE_API_URL = "http://localhost:8000" }
+[env.preview]
+VITE_API_URL = "http://localhost:8000"
 
-[context.branch-deploy]
-environment = { VITE_API_URL = "http://localhost:8000" }
+[env.dev]
+VITE_API_URL = "http://localhost:8000"
